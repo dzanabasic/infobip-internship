@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE urlrewrite PUBLIC "-//www.tuckey.org//DTD UrlRewrite 3.0//EN"
+        "urlrewrite3.0.dtd">
+
+<urlrewrite default-match-type="regex">
+
+    <rule>
+        <from>^/$</from>
+        <to type="redirect">/index</to>
+    </rule>
+
+    <rule>
+        <from>/(.*)</from>
+        <to>/$1</to>
+    </rule>
+
+    <outbound-rule>
+        <from>/(.*)</from>
+        <to>/$1</to>
+    </outbound-rule>
+</urlrewrite>
+
