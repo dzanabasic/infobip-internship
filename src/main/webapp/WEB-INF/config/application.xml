@@ -10,9 +10,8 @@
 	<context:component-scan base-package="org.infobip.internship.controller" />
 	<context:component-scan base-package="org.infobip.internship"/>
  
-	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+                <property name="prefix">
 			<value>/WEB-INF/view/</value>
 		</property>
 		<property name="suffix">
@@ -31,5 +30,6 @@
 			</list>
 		</property>
 	</bean>
+		<bean id="weatherApi" class="org.infobip.internship.openweather.api.WeatherApi"></bean>
  
 </beans>
