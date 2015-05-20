@@ -14,8 +14,9 @@
 			$(document).ready(function(){
 			
 			$("#weather").click(function(){
-				console.log("mbnm");
-				$.ajax({url: "index/city/Sarajevo/code/ba", success: function(result){
+				var city=$("#city").val();
+			var code=$("#code").val();
+				$.ajax({url: "index/city/"+city+"/code/"+code, success: function(result){
 					$("#div1").html(result);
 				}});
 			});})
@@ -25,13 +26,22 @@
    <div id="div1">
 	
 </div>
-	
+
+<form>
+City:<br>
+<input id="city" type="text" name="City">
+<br>
+Country code:<br>
+<input id="code" type="text"  name="Country code">
+	<input type="button" id="weather"  value="Submit"></input>
+
+
+
+
+</form>
 		
-<input type="button" id="weather"  value="Weather in the world"></input>
-		</script>	
-			
+
 		
-	
 		
 	</body>
 </html>
