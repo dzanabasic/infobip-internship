@@ -26,20 +26,22 @@
 					var city=$("#citySelector").val();
 					var code=$("#code").val();
 					$.ajax({url: "index/city/"+city+"/code/"+code, success: function(result){
+						var object=JSON.parse(result);
+						var sunriseTime=new Date(object.sys.sunrise*1000);
+						var sunsetTime=new Date(object.sys.sunset*1000);
 
-					var object=JSON.parse(result);
-					var sunriseTime=new Date(object.sys.sunrise*1000);
-					var sunsetTime=new Date(object.sys.sunset*1000);
+						$("#wind").html(object.wind.speed);
 
-					$("#wind").html(object.wind.speed);
-
-					$("#pressure").html(object.main.pressure);
-					$("#clouds").html(object.weather[0].description);
-					$("#humidity").html(object.main.humidity);
-					$("#temp_min").html(object.main.temp_min);
-					$("#temp_max").html(object.main.temp_max);
-					$("#sunrise").html(sunriseTime.getHours()+":"+sunriseTime.getMinutes()+":"+sunriseTime.getSeconds());
-					$("#sunset").html(sunsetTime.getHours()+":"+sunsetTime.getMinutes()+":"+sunsetTime.getSeconds());
+						$("#pressure").html(object.main.pressure);
+						$("#clouds").html(object.weather[0].description);
+						if(true){
+							$("#icon").append('<img src="http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png"/>');
+						}
+						$("#humidity").html(object.main.humidity);
+						$("#temp_min").html(object.main.temp_min);
+						$("#temp_max").html(object.main.temp_max);
+						$("#sunrise").html(sunriseTime.getHours()+":"+sunriseTime.getMinutes()+":"+sunriseTime.getSeconds());
+						$("#sunset").html(sunsetTime.getHours()+":"+sunsetTime.getMinutes()+":"+sunsetTime.getSeconds());
 
 					}});
 
@@ -70,28 +72,12 @@
 		</script>
 	</head>
 	<body>
+		<div id="icon"></div>
 		<h1>Welcome to Open Weather site</h1>
 		<p>Let's take a look at weather in your city</p>
 		
 		<div id="div1">
 		</div>
-		
-<!--		<form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
-				<div class="input-group">
-					
-					<span class="input-group-addon" >
-						<i class="glyphicon glyphicon-certificate"></i>
-					</span>
-					<input id="city" class="form-control" type="text" placeholder="City" name="City"/>
-				</div>
-				<input id="code" type="text" class="form-control" placeholder="Country code" name="code"/>
-			</div>
-			<button id="weather" type="button" class="btn btn-default">Go!</button>
-		</form>
-		-->
-	
-
 		
 		<form class="navbar-form navbar-left" role="search">
 			<div class="form-group">
@@ -123,32 +109,18 @@
 			<button id="weather" type="button" class="btn btn-default">Go!</button>
 		</form>
 		
-		<div id="myform" style="display:none" img src="http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png">
+		<div id="myform" style="display:none">
 			<table class="table table-striped table-bordered ">
-				<thead>
-					<tr>
-						<tr><td>Wind Speed</td><td id="wind" ></td></tr>
-						<tr><td>Cloudiness</td><td id="clouds">/td></tr>
-						<tr><td>Pressure</td><td id="pressure"></td></tr>
-						<tr><td>Humidity</td><td id="humidity"></td></tr>
-						<tr><td>Minimum Temperature</td><td id="temp_min"></td></tr>
-						<tr><td>Maximum Temperature</td><td id="temp_max"></td></tr>
-						<tr><td>Sunrise</td><td id="sunrise"></td></tr>
-						<tr><td>Sunset</td><td id="sunset"></td></tr>
-					</tr>
-				</thead>
 				<tbody>
-					<tr>
-						<td id="wind"></td>
-						<td id="clouds"></td>
-						<td id="pressure"></td>
-						<td id="humidity"></td>
-						<td id="temp_min"></td>
-						<td id="temp_max"></td>
-						<td id="sunrise"></td>
-						<td id="sunset"></td>
-					</tr>
-				</tbody>
+					<tr><td>Wind Speed</td><td id="wind" ></td></tr>
+					<tr><td>Cloudiness</td><td id="clouds"></td></tr>
+					<tr><td>Pressure</td><td id="pressure"></td></tr>
+					<tr><td>Humidity</td><td id="humidity"></td></tr>
+					<tr><td>Minimum Temperature</td><td id="temp_min"></td></tr>
+					<tr><td>Maximum Temperature</td><td id="temp_max"></td></tr>
+					<tr><td>Sunrise</td><td id="sunrise"></td></tr>
+					<tr><td>Sunset</td><td id="sunset"></td></tr>
+				</tbody>					
 			</table>	
 		</div>
 	</body>
