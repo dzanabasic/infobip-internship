@@ -7,16 +7,11 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstrap-select.min.css"></link>
 			
-		<style>
-				//body {background-image: url("http://www.webdesignburn.com/wp-content/uploads/2015/03/Free-Spring-Wallpaper-HD-for-Desktop-36.jpg");
-				p {color:blue;}
-		
-				.jumbotron h1 {
-				font-family: 'Open Sans', sans-serif !important;
-				color: white;
-				text-rendering: optimizelegibility;
-				text-align: center;
-				}
+		<style>				
+			.skyimage {
+				width: 40px;
+				  height: 40px;
+			}
 		</style>
 		<script type="text/javascript" >
 
@@ -33,9 +28,16 @@
 						$("#wind").html(object.wind.speed);
 
 						$("#pressure").html(object.main.pressure);
-						$("#clouds").html(object.weather[0].description);
-						if(true){
-							$("#icon").append('<img src="http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png"/>');
+						$("#cloudsdescription").html(object.weather[0].description);
+				
+						if(object.weather[0].description=="Sky is Clear"){
+							$("#skyimage").html('<img class="skyimage" src="http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png"/>');		
+						}
+						else if(object.weather[0].description=="few clouds"){
+							$("#skyimage").html('<img class="skyimage" src="http://www.psdgraphics.com/file/weather-icon.jpg"/>');
+						}
+						else{
+							$("#skyimage").html('<img class="skyimage" src="http://www.psdgraphics.com/file/weather-icon.jpg"/>');
 						}
 						$("#humidity").html(object.main.humidity);
 						$("#temp_min").html(object.main.temp_min);
@@ -76,11 +78,8 @@
 		<h1>Welcome to Open Weather site</h1>
 		<p>Let's take a look at weather in your city</p>
 		
-		<div id="div1">
-		</div>
-		
 		<form class="navbar-form navbar-left" role="search">
-			<div class="form-group">
+			<div class="form-group" class="skyimage">
 				<div class="input-group">			
 					<span class="input-group-addon" >
 						<i class="glyphicon glyphicon-certificate"></i>
@@ -113,7 +112,13 @@
 			<table class="table table-striped table-bordered ">
 				<tbody>
 					<tr><td>Wind Speed</td><td id="wind" ></td></tr>
-					<tr><td>Cloudiness</td><td id="clouds"></td></tr>
+					<tr>
+						<td>Cloudiness</td>
+						<td id="clouds">
+							<div id="cloudsdescription"></div>
+							<div id="skyimage" class="skyimage"></div>
+						</td>
+					</tr>
 					<tr><td>Pressure</td><td id="pressure"></td></tr>
 					<tr><td>Humidity</td><td id="humidity"></td></tr>
 					<tr><td>Minimum Temperature</td><td id="temp_min"></td></tr>
