@@ -24,6 +24,10 @@ public class Temperature {
 		this.humidity = humidity;
 	}
 
+	public Temperature() {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
 	public void setTemp(double temp) {
 		this.temp = temp;
 	}

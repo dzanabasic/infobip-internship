@@ -30,6 +30,8 @@
 			</list>
 		</property>
 	</bean>
-		<bean id="weatherApi" class="org.infobip.internship.openweather.api.WeatherApi"></bean>
- 
+	
+	<bean id="weatherApi" class="org.infobip.internship.openweather.api.WeatherApi"></bean>
+	
+	<bean id="weatherApiTemp" class="org.infobip.internship.openweather.api.WeatherApiTemp"></bean>
 </beans>
