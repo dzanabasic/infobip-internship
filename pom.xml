@@ -69,8 +69,22 @@
 			<artifactId>gson</artifactId>
 			<version>2.3.1</version>
 		</dependency>
+<!--	 
 	 
-	</dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		
+		<dependency>
+			<groupid>taglibs</groupid>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+			<scope>runtime</scope>
+		</dependency>-->
+		</dependencies>
 	
 	<build>
 		<finalName>infobip-internship</finalName>

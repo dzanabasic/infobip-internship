@@ -1,5 +1,6 @@
 package org.infobip.internship.controller;
 
+import org.infobip.internship.openweather.model.List;
 import org.infobip.internship.openweather.model.Temperature;
 
 /**
@@ -9,6 +10,9 @@ import org.infobip.internship.openweather.model.Temperature;
 public class Const {
 	public Temperature temp_min;
 	public Temperature temp_max;
+
+	
+	
 	public static final String DATA2 ="" ;
 	public static final String DATA = "" +
 "[\n" +

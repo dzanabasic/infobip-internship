@@ -3,7 +3,6 @@ package org.infobip.internship.openweather.api;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.IOException;
-import java.net.URI;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
@@ -11,6 +10,7 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.util.EntityUtils;
 import org.infobip.internship.openweather.model.WeatherFull;
+import org.infobip.internship.openweather.model.WeatherFullChart;
 
 /**
  *
@@ -23,10 +23,10 @@ public class WeatherApiTemp {
 
 	private HttpClient httpClient;
 
-	public WeatherFull getTemperature(String city) throws IOException {
+	public WeatherFullChart getTemperature(String city) throws IOException {
 		HttpUriRequest httpUriRequest = new HttpGet(buildUri(city));
 		final HttpResponse httpResponse = getHttpClient().execute(httpUriRequest);
-		return GSON.fromJson(EntityUtils.toString(httpResponse.getEntity()), WeatherFull.class);
+		return GSON.fromJson(EntityUtils.toString(httpResponse.getEntity()), WeatherFullChart.class);
 	}
 
 	private static String buildUri(String city) {
@@ -42,3 +42,5 @@ public class WeatherApiTemp {
 
 	
 }
+	
+

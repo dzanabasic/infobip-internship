@@ -1,7 +1,5 @@
 <html>
 	<head>
-		<script src="http://code.highcharts.com/stock/highstock.js"></script>
-		<script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
 		<script type="text/javascript" src= "http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script type="text/javascript" src= "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 		<script type="text/javascript" src= "http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/js/bootstrap-select.min.js"></script>
@@ -11,7 +9,7 @@
 		<style>				
 			.skyimage {
 				width: 40px;
-				  height: 40px;
+				height: 40px;
 			}
 		</style>
 		<script type="text/javascript" >
@@ -19,10 +17,13 @@
 			$(document).ready(function(){
 
 				$("#weather").click(function(){
-					var city=$("#citySelector").val();
-					var code=$("#code").val();
+					var code=$("#citySelector").val();
+					var city=$("#citySelector :selected").text();
+		
 					$.ajax({url: "index/city/"+city+"/code/"+code, success: function(result){
+					alert(result)
 						var object=JSON.parse(result);
+			
 						var sunriseTime=new Date(object.sys.sunrise*1000);
 						var sunsetTime=new Date(object.sys.sunset*1000);
 
@@ -88,7 +89,7 @@
 					</span>
 					<select id="citySelector"class="selectpicker"  class="form-control" type="text" placeholder="City" name="city" >
 						<optgroup label="United Kingdom">
-							<option  value="UK">London</option>
+							<option   value="UK">London</option>
 							<option   value="UK">Liverpool</option>
 							<option   value="UK">Manchester</option>
 						</optgroup>
@@ -105,6 +106,7 @@
 					</select>
 				</div>
 				<input id="code" type="text" class="form-control" placeholder="Country" value="UK" />
+				
 			</div>
 			<button id="weather" type="button" class="btn btn-default">Go!</button>
 		</form>

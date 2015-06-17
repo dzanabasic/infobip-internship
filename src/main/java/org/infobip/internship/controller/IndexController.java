@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class IndexController {
 
 	private static final Gson GSON = new Gson();
-	private WeatherApi weatherApi;
+	private final WeatherApi weatherApi;
 
 	@Autowired
 	public IndexController(WeatherApi weatherApi) {

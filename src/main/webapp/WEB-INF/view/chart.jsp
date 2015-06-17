@@ -14,9 +14,12 @@
 			
 			$(document).ready(function () {
 				$.ajax({url: "chart/city/"+"London", success: function(result){
-					var object=JSON.parse(${data});
-					alert(data);
-					// Create the chart
+					alert(result);
+			       
+					var object=JSON.parse(result);
+						
+					
+
 					$('#container').highcharts('StockChart', {
 						rangeSelector : {
 							selected : 1
@@ -28,7 +31,7 @@
 
 						series : [{
 							name : 'Temperature',
-							data: object,
+							data:result,
 							tooltip: {
 								valueDecimals: 2
 							}			
