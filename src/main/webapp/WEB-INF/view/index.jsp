@@ -38,15 +38,27 @@
 						$("#pressure").html(object.main.pressure);
 						$("#cloudsdescription").html(object.weather[0].description);
 				
-						if(object.weather[0].description=="Sky is Clear"){
-							$("#skyimage").html('<img class="skyimage" src="http://icons.iconarchive.com/icons/large-icons/large-weather/512/partly-cloudy-day-icon.png"/>');		
+						if(object.weather[0].description=="sky is clear"){
+							$("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/01d.png"/>');		
 						}
 						else if(object.weather[0].description=="few clouds"){
-							$("#skyimage").html('<img class="skyimage" src="http://www.psdgraphics.com/file/weather-icon.jpg"/>');
+							$("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/02d.png"/>');
 						}
-						else{
-							$("#skyimage").html('<img class="skyimage" src="http://www.psdgraphics.com/file/weather-icon.jpg"/>');
+						else if(object.weather[0].description=="scattered clouds"){
+							$("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/03d.png"/>');
 						}
+							
+						else if(object.weather[0].description=="light rain"){
+							$("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/10n.png"/>');
+						}
+						else if (object.weather[0].description=="overcast clouds"){
+							$("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/04d.png"/>');
+						}
+						else if (object.weather[0].description=="broken clouds"){
+							$("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/04d.png"/>');
+						}
+						else
+		                    $("#skyimage").html('<img class="skyimage" src="http://openweathermap.org/img/w/01d.png"/>');		
 						$("#humidity").html(object.main.humidity);
 						$("#temp_min").html(object.main.temp_min);
 						$("#temp_max").html(object.main.temp_max);
@@ -88,7 +100,7 @@
 						},
 
 						title : {
-							text : 'Daily temperature change(3h)'
+							text : 'Daily temperature change(Celsius)'
 						},
 
 						series : [{
@@ -133,6 +145,21 @@
 							<option   value="RS">Belgrade</option>
 							<option   value="RS">Kragujevac</option>
 							<option   value="RS">Valjevo</option>
+						</optgroup>
+						<optgroup label="France">
+							<option   value="FR">Paris</option>
+							<option   value="FR">Lyon</option>
+							<option   value="FR">Caen</option>
+						</optgroup>
+						<optgroup label="Spain">
+							<option   value="ES">Madrid</option>
+							<option   value="ES">Barcelona</option>
+							<option   value="ES">Palma</option>
+						</optgroup>
+						<optgroup label="United States">
+							<option   value="US">New York</option>
+							<option   value="US">Miami</option>
+							<option   value="US">Colorado Springs</option>
 						</optgroup>
 					</select>
 				</div>
