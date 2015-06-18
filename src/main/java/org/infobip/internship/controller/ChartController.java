@@ -52,15 +52,18 @@ public class ChartController {
 		String datetime = "";
 		for (int i = 0; i < list.length; i++) {
 			if (i == 0) {
-				datetime += "[" + "[" + list[i].getDt() + "," + list[i].getMain().getTemp_max() + "],";
+				datetime += "[" + "[" + list[i].getDt() + "," + convertToCelsius(list[i].getMain().getTemp_max()) + "],";
 			}
 			if (i == list.length - 1) {
-				datetime += "[" + list[i].getDt() + "," + list[i].getMain().getTemp_max() + "]" + "]";
+				datetime += "[" + list[i].getDt() + "," + convertToCelsius(list[i].getMain().getTemp_max()) + "]" + "]";
 			} else {
-				datetime += "[" + list[i].getDt() + "," + list[i].getMain().getTemp_max() + "],";
+				datetime += "[" + list[i].getDt() + "," + convertToCelsius(list[i].getMain().getTemp_max()) + "],";
 			}
 		}
 		return datetime;
 	}
-
+public double convertToCelsius(double kelvin){
+	double celsius=kelvin-273.15;
+	return celsius;
+}
 }

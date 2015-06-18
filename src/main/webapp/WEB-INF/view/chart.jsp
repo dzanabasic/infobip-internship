@@ -12,7 +12,10 @@
 
 		<script type="text/javascript" >
 			$(document).ready(function () {
-				$.ajax({url: "chart/city/"+"Belgrade", success: function(result){
+				drawChart("Sarajevo")
+			});
+			function drawChart(city){
+				$.ajax({url: "chart/city/" + city, success: function(result){
 					alert(result);
 			       
 					var object=JSON.parse(result);
@@ -25,7 +28,7 @@
 						},
 
 						title : {
-							text : 'Daily temperature change(3h)'
+							text : 'Daily temperature change(Celsius)'
 						},
 
 						series : [{
@@ -39,7 +42,7 @@
 
 					}
 				});
-			});
+			}
 		</script>
 	</head>
 	
