@@ -11,9 +11,8 @@
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstrap-select.min.css"></link>	
 
 		<script type="text/javascript" >
-			
 			$(document).ready(function () {
-				$.ajax({url: "chart/city/"+"London", success: function(result){
+				$.ajax({url: "chart/city/"+"Belgrade", success: function(result){
 					alert(result);
 			       
 					var object=JSON.parse(result);
@@ -26,14 +25,14 @@
 						},
 
 						title : {
-							text : '5 Days Temperature Change'
+							text : 'Daily temperature change(3h)'
 						},
 
 						series : [{
 							name : 'Temperature',
-							data:result,
+							data: object,
 							tooltip: {
-								valueDecimals: 2
+								valueDecimals: 3
 							}			
 					   }]
 					});
@@ -45,6 +44,6 @@
 	</head>
 	
 	<body>
-		<div id="container" style="height: 400px; min-width: 310px"></div>
+		<div id="container" style="height:400px; min-width: 310px"></div>
 	</body>
 </html>

@@ -1,16 +1,17 @@
 package org.infobip.internship.controller;
 
+import static org.infobip.internship.controller.Const.temp_max;
 import org.infobip.internship.openweather.model.List;
 import org.infobip.internship.openweather.model.Temperature;
+import org.infobip.internship.openweather.model.WeatherFullChart;
 
 /**
  *
  * @author ubuntu
  */
 public class Const {
-	public Temperature temp_min;
-	public Temperature temp_max;
-
+	public static String temp_max[];
+	WeatherFullChart object=new WeatherFullChart();
 	
 	
 	public static final String DATA2 ="" ;

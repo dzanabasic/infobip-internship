@@ -1,17 +1,19 @@
 package org.infobip.internship.openweather.model;
 
 import java.util.Arrays;
+import java.util.logging.Logger;
 
 /**
  *
  * @author ubuntu
  */
 public class WeatherFullChart {
-private int cod;
-private double message;
-private City city;
-private int cnt;
-private List[] list;
+
+	private int cod;
+	private double message;
+	private City city;
+	private int cnt;
+	private List[] list;
 
 	public WeatherFullChart() {
 	}
@@ -106,6 +108,5 @@ private List[] list;
 	public String toString() {
 		return "WeatherFullChart{" + "cod=" + cod + ", message=" + message + ", city=" + city + ", cnt=" + cnt + ", list=" + list + '}';
 	}
-	
 
 }

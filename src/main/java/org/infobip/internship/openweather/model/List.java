@@ -8,7 +8,7 @@ import java.util.Arrays;
  */
 public class List {
 	private long dt;
-	private MainTemperature maintemperature;
+	private MainTemperature main;
 	private Weather[] weather;
 	private Clouds clouds;
 	private Wind wind;
@@ -21,7 +21,7 @@ public class List {
 
 	public List(long dt, MainTemperature maintemperature, Weather[] weather, Clouds clouds, Wind wind, Rain rain, Sys2 pod, String dt_text) {
 		this.dt = dt;
-		this.maintemperature = maintemperature;
+		this.main = maintemperature;
 		this.weather = weather;
 		this.clouds = clouds;
 		this.wind = wind;
@@ -34,8 +34,8 @@ public class List {
 		this.dt = dt;
 	}
 
-	public void setMaintemperature(MainTemperature maintemperature) {
-		this.maintemperature = maintemperature;
+	public void setMain(MainTemperature main) {
+		this.main = main;
 	}
 
 	public void setWeather(Weather[] weather) {
@@ -66,8 +66,8 @@ public class List {
 		return dt;
 	}
 
-	public MainTemperature getMaintemperature() {
-		return maintemperature;
+	public MainTemperature getMain() {
+		return main;
 	}
 
 	public Weather[] getWeather() {
@@ -98,7 +98,7 @@ public class List {
 	public int hashCode() {
 		int hash = 7;
 		hash = 97 * hash + (int) (this.dt ^ (this.dt >>> 32));
-		hash = 97 * hash + (this.maintemperature != null ? this.maintemperature.hashCode() : 0);
+		hash = 97 * hash + (this.main != null ? this.main.hashCode() : 0);
 		hash = 97 * hash + Arrays.deepHashCode(this.weather);
 		hash = 97 * hash + (this.clouds != null ? this.clouds.hashCode() : 0);
 		hash = 97 * hash + (this.wind != null ? this.wind.hashCode() : 0);
@@ -120,7 +120,7 @@ public class List {
 		if (this.dt != other.dt) {
 			return false;
 		}
-		if (this.maintemperature != other.maintemperature && (this.maintemperature == null || !this.maintemperature.equals(other.maintemperature))) {
+		if (this.main != other.main && (this.main == null || !this.main.equals(other.main))) {
 			return false;
 		}
 		if (!Arrays.deepEquals(this.weather, other.weather)) {
@@ -146,7 +146,7 @@ public class List {
 
 	@Override
 	public String toString() {
-		return "List{" + "dt=" + dt + ", maintemperature=" + maintemperature + ", weather=" + weather + ", clouds=" + clouds + ", wind=" + wind + ", rain=" + rain + ", pod=" + pod + ", dt_text=" + dt_text + '}';
+		return "List{" + "dt=" + dt + ", maintemperature=" + main + ", weather=" + weather + ", clouds=" + clouds + ", wind=" + wind + ", rain=" + rain + ", pod=" + pod + ", dt_text=" + dt_text + '}';
 	}
 	
 	
