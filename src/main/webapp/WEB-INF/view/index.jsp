@@ -9,11 +9,23 @@
 	
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.5/css/bootstrap-select.min.css"></link>
-			
+		<link href='http://fonts.googleapis.com/css?family=Slabo+27px' rel='stylesheet' type='text/css'>
 		<style>				
 			.skyimage {
 				width: 40px;
 				height: 40px;
+			}
+			h1{
+			    font-family: 'Slabo 27px', serif;
+				text-shadow: 19px 24px 10px;
+				text-align: center;
+				font-size: -webkit-xxx-large;
+			}
+			.SunImage{
+			    position: fixed;
+				top: -150px;
+				right: -100;
+				z-index: 1000;
 			}
 		</style>
 		<script type="text/javascript" >
@@ -118,78 +130,97 @@
 
 		</script>
 	</head>
-	<body>
-		<div id="icon"></div>
-		<h1>Welcome to Open Weather site</h1>
-		<p>Let's take a look at weather in your city</p>
-		
-		<form class="navbar-form navbar-left" role="search">
-			<div class="form-group" class="skyimage">
-				<div class="input-group">			
-					<span class="input-group-addon" >
-						<i class="glyphicon glyphicon-certificate"></i>
+	<body style="background:url(http://www.sonicstadium.org/wp-content/uploads/2010/09/Sonic-Free-Riders-background-art.jpg)">
+		<div class="container"style=" width:100% ">
+			<div class="row">
+				<div class="col-md-12">
+					<div id="icon"></div>
+					<h1 style="font-family: 'Slabo 27px', serif" >Welcome to Open Weather Web site</h1>
 					
-					</span>
-					<select id="citySelector"class="selectpicker"  class="form-control" type="text" placeholder="City" name="city" >
-						<optgroup label="United Kingdom">
-							<option   value="UK">London</option>
-							<option   value="UK">Liverpool</option>
-							<option   value="UK">Manchester</option>
-						</optgroup>
-						<optgroup label="Bosnia">
-							<option  value="BA">Sarajevo</option>
-							<option  value="BA">Zenica</option>
-							<option  value="BA">Banja Luka</option>
-						</optgroup>
-						<optgroup label="Serbia">
-							<option   value="RS">Belgrade</option>
-							<option   value="RS">Kragujevac</option>
-							<option   value="RS">Valjevo</option>
-						</optgroup>
-						<optgroup label="France">
-							<option   value="FR">Paris</option>
-							<option   value="FR">Lyon</option>
-							<option   value="FR">Caen</option>
-						</optgroup>
-						<optgroup label="Spain">
-							<option   value="ES">Madrid</option>
-							<option   value="ES">Barcelona</option>
-							<option   value="ES">Palma</option>
-						</optgroup>
-						<optgroup label="United States">
-							<option   value="US">New York</option>
-							<option   value="US">Miami</option>
-							<option   value="US">Colorado Springs</option>
-						</optgroup>
-					</select>
+					<img class="SunImage" src="http://www.clker.com/cliparts/F/8/D/c/4/1/sun-icon-md.png"/>
 				</div>
-				<input id="code" type="text" class="form-control" placeholder="Country" value="UK" />
 				
 			</div>
-			<button id="weather" type="button" class="btn btn-default">Go!</button>
-		</form>
-		
-		<div id="myform" style="display:none">
-			<table class="table table-striped table-bordered ">
-				<tbody>
-					<tr><td>Wind Speed</td><td id="wind" ></td></tr>
-					<tr>
-						<td>Cloudiness</td>
-						<td id="clouds">
-							<div id="cloudsdescription"></div>
-							<div id="skyimage" class="skyimage"></div>
-						</td>
-					</tr>
-					<tr><td>Pressure</td><td id="pressure"></td></tr>
-					<tr><td>Humidity</td><td id="humidity"></td></tr>
-					<tr><td>Minimum Temperature</td><td id="temp_min"></td></tr>
-					<tr><td>Maximum Temperature</td><td id="temp_max"></td></tr>
-					<tr><td>Sunrise</td><td id="sunrise"></td></tr>
-					<tr><td>Sunset</td><td id="sunset"></td></tr>
-				</tbody>					
-			</table>	
-		</div>
-		
-		<div id="container" style="height:400px; min-width: 310px"></div>
+			<br/>
+			<div class="row">
+				<div class="col-md-8">
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group" class="skyimage" class="pull-right">
+							<div class="input-group">			
+								<span class="input-group-addon" >
+									<i class="glyphicon glyphicon-certificate"></i>
+
+								</span>
+								<select id="citySelector"class="selectpicker"  class="form-control" type="text" placeholder="City" name="city" >
+									<optgroup label="United Kingdom">
+										<option   value="UK">London</option>
+										<option   value="UK">Liverpool</option>
+										<option   value="UK">Manchester</option>
+									</optgroup>
+									<optgroup label="Bosnia">
+										<option  value="BA">Sarajevo</option>
+										<option  value="BA">Zenica</option>
+										<option  value="BA">Banja Luka</option>
+									</optgroup>
+									<optgroup label="Serbia">
+										<option   value="RS">Belgrade</option>
+										<option   value="RS">Kragujevac</option>
+										<option   value="RS">Valjevo</option>
+									</optgroup>
+									<optgroup label="France">
+										<option   value="FR">Paris</option>
+										<option   value="FR">Lyon</option>
+										<option   value="FR">Caen</option>
+									</optgroup>
+									<optgroup label="Spain">
+										<option   value="ES">Madrid</option>
+										<option   value="ES">Barcelona</option>
+										<option   value="ES">Palma</option>
+									</optgroup>
+									<optgroup label="United States">
+										<option   value="US">New York</option>
+										<option   value="US">Miami</option>
+										<option   value="US">Colorado Springs</option>
+									</optgroup>
+								</select>
+							</div>
+							<input id="code" type="text" class="form-control" placeholder="Country" value="UK" />
+
+						</div>
+						<button id="weather" type="button" class="btn btn-default">Go!</button>
+					</form>
+				</div>
+			</div>
+			<br/>
+			<br/>
+			<div class="row">
+				<div class="col-md-4">
+					<div id="myform" style="display:none">
+						<table class="table table-striped table-bordered ">
+							<tbody>
+								<tr><td>Wind Speed</td><td id="wind" ></td></tr>
+								<tr>
+									<td>Cloudiness</td>
+									<td id="clouds">
+										<div id="cloudsdescription"></div>
+										<div id="skyimage" class="skyimage"></div>
+									</td>
+								</tr>
+								<tr><td>Pressure</td><td id="pressure"></td></tr>
+								<tr><td>Humidity</td><td id="humidity"></td></tr>
+								<tr><td>Minimum Temperature</td><td id="temp_min"></td></tr>
+								<tr><td>Maximum Temperature</td><td id="temp_max"></td></tr>
+								<tr><td>Sunrise</td><td id="sunrise"></td></tr>
+								<tr><td>Sunset</td><td id="sunset"></td></tr>
+							</tbody>					
+						</table>	
+					</div>
+				</div>
+
+				<div class="col-md-8">
+					<div id="container" style="height:350px; width:100%" class="pull-right"></div>
+				</div>
+			</div>
+	</div>
 	</body>
 </html>
